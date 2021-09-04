@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+	//클로저 함수 -> 내부함수에서 외부함수의 변수에 접근 가능하다
+	/*
+
+	function outter(){
+		var title='coding everybody';
+		return function(){
+			alert(title);
+		}
+	}
+	inner=outter();
+	inner();
+	*/
+
+
+
+	//어디다 쓰일까? -> private한 변수를 사용할 수 있다
+	function factory_movie(title){
+		return{
+			get_title:function(){
+				return title;
+			},
+			set_title:function(_title){
+				title=_title
+			}
+		}
+	}
+	ghost=factory_movie('Ghost in the shell');
+	matrix=factory_movie('Matrix');
+	alert(ghost.get_title());	//Ghost in the shell
+	alert(matrix.get_title());	//Matrix
+	ghost.set_title('공각기동대')
+
+	alert(ghost.get_title());	//공각기동대
+	alert(matrix.get_title());	//Matrix
+
+
+	//클로저의 주의할점
+	var arr=[]					
+	for(var i=0;i<5;i++){		
+		arr[i]=function(){
+			return i;
+		}
+	}
+	for(var index in arr){
+		console.log(arr[index]());
+	}
+	//arr[0]=function(){  return i;  }
+	//arr[1]=function(){  return i;  }
+	//arr[2]=function(){  return i;  }
+	//arr[3]=function(){  return i;  }
+	//arr[4]=function(){  return i;  }
+	//console.log(arr[index]()) 에서 i는 5이기 때문에 결과는 5만 다섯번 출력됨
+	
+
+
+	var arr=[]
+	for(var i=0;i<5;i++){
+		arr[i]=function(id){
+			return function(){
+				return id;
+			}
+		}(i);
+	}
+	for(var index in arr){
+		console.log(arr[index]());
+	}
+	//arr[0]=function(){  return i의id;  }
+	//arr[1]=function(){  return i의id;  }
+	//arr[2]=function(){  return i의id;  }
+	//arr[3]=function(){  return i의id;  }
+	//arr[4]=function(){  return i의id;  }
+	//console.log(arr[index]()) 에서 i의 id가 출력되기때문에 각각 0,1,2,3,4가 출력됨
+
+</script>
+</body>
+</html>

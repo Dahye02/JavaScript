@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	//객체 지향 프로그래밍(Object Oriented Programming)
+	//객체를 기준으로 기능을 분류시켜 관리를 쉽게 한다.(재활용성up)
+
+	//Javascript같은 언어는 prototype-based programming라 한다..
+
+
+	var person={}
+
+	person.name='egoing'; //name에 담겨있는 값은 프로퍼티(속성;property)라한다
+	person.introduce=function(){	// introduce에 담겨있는 함수는 메소드라한다.
+		return 'My name is'+this.name;
+	}
+	document.write(person.introduce());
+
+
+
+	var person={
+		'name':'egoing',
+		'introduce':function(){
+			return 'My name is'+this.name;
+		}
+	}
+	document.write(person.introduce());
+
+	//위의 코드는 중복된 코드,, 이를 막기위해 생성자,new를 사용한다
+</script>
+</body>
+</html>

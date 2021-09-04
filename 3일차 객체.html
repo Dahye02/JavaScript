@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Hi</title>
+</head>
+<body>
+<script type="text/javascript">
+
+
+
+
+	var grade={'me':10,'she':30,'he':50}	//객체생성(1)
+	
+
+
+
+	var grades={};    //객체생성(2)
+	//var grades=new object();
+	grades['me']=10;
+	grades['she']=30;
+	grades['he']=50;
+
+
+
+
+	/*
+	객체의 호출방법
+	1. grades['me']
+	2. grades.me
+	3. grades['m'+'e']
+	*/
+
+
+
+
+
+	for(key in grades){		//객체생성(3)
+		document.write("key : "+key+" / value : "+grade[key]+"<br/>");
+	}
+	//객체에는 순서가 없고 key와 value만 있다. 
+	//위에 코드에서는 key값으로 받아오는값이 me,she,he 이렇게 3개 있다.(for in문이라고 한다...)
+
+
+
+
+
+	var grades={		//객체생성(4)
+		'list' : {'me' : 10, 'she' : 30, 'he' : 50},
+		'show' : function(){
+			/*
+			alert(this);//this는 31번줄의 grades를 가르킨다..상속계념..가장끝의..
+			alert(this.list);//grades의 list를 참조한다
+			*/
+			for(var name in this.list){
+				console.log(name, this.list[name]);
+			}
+		}
+	}
+
+	alert(grades['list']['me']);//key값들만을 가지고 접근을 한다
+	alert(grades['show']()); //'show'의 선언된함수를 실행할때는 뒤에 () 붙이기
+	//alert(grades.show)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+	//함수의 구조체에서의 값으로 활용
+	var proces=[
+		function(input){return input+10;},		//0
+		function(input){return input*input;},	//1
+		function(input){return input/2;}		//2
+	];
+	var input=1;
+	for(var i=0;i<proces.length;i++){
+		input=proces[i](input);
+	}
+	alert(input);
+
+
+
+
+	//콜백 함수의 예시(.sort)
+	//옵션으로 함수를사용해 정렬방식을 설정할수있는데, 함수를 값으로 이용한 예시이다..(=자바스크립트의 함수는 값이다!)
+	var  numbers=[20,10,9,8,7,6,5,4,3,2,1];
+	var sortfunc=function(a,b){
+		console.log(a,b);
+		return a-b;
+	}
+	console.log(numbers.sort(sortfunc)); //sortfunc는 콜백함수가 된다
+</script>
+</body>
+</html>

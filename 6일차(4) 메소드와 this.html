@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+	function func(){
+		if(window===this){
+			console.log("window === this");
+		}
+	};
+	func();
+	//위 코드에서 본것과 같이 this는 전역객체를 뜻하는 window를 가르킨다
+	//가르킬 객체가 따로 없다면 전역객체(window)를 가르키기 때문이다..
+
+
+	var o={
+		func:function(){
+			if(o===this){
+				document.write("o===this");
+			}
+		}
+	}
+	o.func();
+	//위 코드에서 본것과 같이 this는 o라는 객체를 가르킨다
+</script>
+</body>
+</html>

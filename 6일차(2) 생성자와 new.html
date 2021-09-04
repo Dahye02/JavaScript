@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	/*
+	//생성자(constructor) : 객체를 만드는 역할을 하는 함수
+	function Person(){}
+	var p=new Person();		//여기서 Person()은 함수가 아닌 객체의 생성자
+							//new로 비어있는 객체를 생성한다..
+	p.name='egoing';
+	p.introduce=function(){
+		return 'My name is '+this.name;
+	}
+	*/
+
+
+	//사용예시
+	function Person(name){
+		this.name=name;
+		this.introduce=function(){
+			return 'My name is '+this.name;
+		}
+	}
+
+	var p1=new Person('egoing');
+	document.write(p1.introduce()+"<br/>");
+
+	var p2=new Person('leezche');
+	document.write(p2.introduce()+"<br/>");
+
+	
+</script>
+</body>
+</html>
